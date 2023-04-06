@@ -1,0 +1,13 @@
+{% extends 'testing/base.html' %}
+
+{% block content %}
+<h5> Hi, {{user.name}} </h5>
+<p class="lead">
+    Your number of fate is: {{destiny_number}}. 
+</p>
+<p class="lead">
+    Your result is: {{destiny_result.text_result}}.
+</p>
+
+
+{% endblock %}

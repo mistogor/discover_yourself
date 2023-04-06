@@ -1,0 +1,46 @@
+{% extends 'testing/base.html' %}
+{% block content %}
+  <h3 class="display-6"> Tests List</h3>
+  <form method="GET">
+    {% csrf_token %}
+    {{filter.form.as_table}}
+    <button type="submit" class="btn btn-dark">Search</button>
+    <a class="btn btn-dark" href=" {% url 'create_psytest' %}" role="button"> + Create test</a>
+  </form>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Author</th>
+          <th>Addition date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for obj in filter.qs %}
+          <tr>
+            <td>{{ obj.title }}</td>
+            <td>{{ obj.category }}</td>
+            <td>{{ obj.author }}</td>
+            <td>{{ obj.addtion_date }}</td>
+            <td>
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Actions
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a href="{% url 'take_test' test_id=obj.id %}" class="dropdown-item">Pass</a></li>
+                  {% if request.user.is_superuser %}
+                    <li><a href="{% url 'edit_test' pk=obj.id %}" class="dropdown-item">Edit</a></li>
+                    <li><a href="{% url 'delete_test' pk=obj.id %}" class="dropdown-item">Delete</a></li>
+                  {% endif %}
+                </ul>
+              </div>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

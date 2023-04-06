@@ -1,0 +1,69 @@
+{% extends 'testing/base.html' %}
+
+{% block content %}
+<h5> Hi, {{user.name}} </h5>
+<h6> Your results:</h6>
+<ul class="list-group">
+    <li class="list-group-item active" aria-current="true">        Lines results    </b> </li>
+    <li class="list-group-item"> First line result: {{first_line_result|linebreaks}}</li>
+    <li class="list-group-item"> Second line result: {{second_line_result|linebreaks}}</li>
+    <li class="list-group-item"> Third line result: {{third_line_result|linebreaks}}</li>
+</ul>
+
+<ul class="list-group">
+    <li class="list-group-item active" aria-current="true">        Columns results    </b> </li>
+    <li class="list-group-item"> First column result: {{first_column_result|linebreaks}}</li>
+    <li class="list-group-item"> Second column result: {{second_column_result|linebreaks}}</li>
+    <li class="list-group-item"> Third column result: {{third_column_result|linebreaks}}</li>
+</ul>
+
+    <ul class="list-group">
+        <li class="list-group-item active" aria-current="true">Ascending diagonal results:</li>
+        <li class="list-group-item">Your result: {{ascending_diagonal_result|linebreaks}}</li>
+    </ul>
+
+    <ul class="list-group">
+        <li class="list-group-item active" aria-current="true">Descending diagonal results:</li>
+        <li class="list-group-item">Your score: {{descending_diagonal}}</li>
+        <li class="list-group-item">Your result: {{descending_diagonal_result|linebreaks}}</li>
+    </ul>
+
+    <h4> Meaning of your digits</h4>
+    <ul class="list-group">
+        <li class="list-group-item active" aria-current="true">Характер</li>
+        <li class="list-group-item">{{ones_result|linebreaks}}</li>
+      </ul>
+      <ul class="list-group">
+        <li class="list-group-item active" aria-current="true">Энергия </li>
+        <li class="list-group-item">{{twos_result|linebreaks}}</li>
+      </ul>
+      <ul class="list-group">
+        <li class="list-group-item active" aria-current="true">Интерес к наукам  </li>
+        <li class="list-group-item">{{threes_result|linebreaks}}</li>
+      </ul>
+      <ul class="list-group">
+        <li class="list-group-item active" aria-current="true">Здоровье </li>
+        <li class="list-group-item">{{fours_result|linebreaks}}</li>
+      </ul>
+      
+      <ul class="list-group">
+        <li class="list-group-item active" aria-current="true">Логика и интуиция <b>You have score: {{fives}}</b> </li>
+        <li class="list-group-item">{{fives_result|linebreaks}}</li>
+      </ul>
+      <ul class="list-group">
+        <li class="list-group-item active" aria-current="true">Склонность к физическому труду. <b>You have score: {{sixes}}</b> </li>
+        <li class="list-group-item">{{sixes_result|linebreaks}}</li>
+      </ul>
+      <ul class="list-group">
+        <li class="list-group-item active" aria-current="true">Везение <b>You have score: {{sevens}}</b> </li>
+        <li class="list-group-item">{{sevens_result|linebreaks}}</li>
+      </ul>
+      <ul class="list-group">
+        <li class="list-group-item active" aria-current="true">Чувство долга к близким (родители, семья) <b>You have score: {{eights}}</b> </li>
+        <li class="list-group-item">{{eights_result|linebreaks}}</li>
+      </ul>
+      <ul class="list-group">
+        <li class="list-group-item active" aria-current="true">Ум, память <b>You have score: {{nines}}</b> </li>
+        <li class="list-group-item">{{nines_result|linebreaks}}</li>
+      </ul>
+{% endblock %}

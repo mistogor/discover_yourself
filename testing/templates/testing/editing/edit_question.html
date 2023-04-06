@@ -1,0 +1,62 @@
+{% extends "testing/base.html" %}
+
+{% block content %}
+  <h3 class="display-6" >Edit Question</b> </h3>
+  <form method="post">
+    {% csrf_token %}
+    {{ question_form.as_p }}
+
+    <table id="option-forms">
+      {{option_formset.as_p}}
+    </table>
+
+    <div class="col-md-12 text-center">
+        <div class="btn-group" >
+            <button type="submit" class="btn btn-dark" name="action" value="save">Save</button>
+        </div>
+    </div>
+
+   {% if question_form.errors %}
+<div class="alert alert-danger">
+    <strong>Error:</strong>
+    {% for field, errors in question_form.errors.items %}
+        <p>{{ field.label }}:</p>
+        <ul>
+            {% for error in errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% if option_formset.errors %}
+<div class="alert alert-danger">
+    <strong>Error:</strong>
+    {% for error in option_formset.errors %}
+        <ul>
+            {% for suberror in error %}
+                <li>{{ suberror }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</div>
+{% endif %}
+
+    <style>
+       /* The following CSS styles are added to make the option forms appear side by side and of equal size */
+  #option-forms td {
+    padding: 0px 10px;
+  }
+  #option-forms tr {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px; /* Add margin bottom to create space between rows */
+  }
+  #option-forms tr td {
+    flex: 1;
+    min-width: 0;
+  }
+    </style>
+  </form>
+{% endblock %}

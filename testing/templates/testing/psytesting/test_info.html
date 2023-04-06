@@ -1,0 +1,43 @@
+{% extends 'testing/base.html' %}
+
+{% block content %}
+  <h3 class="display-6">Test "{{ title }}"</h3>
+  <p class="lead"> Category: {{ category }}</p>
+  <p class="lead"> Author: {{ author }}</p>
+  <p class="lead"> Description: {{ description }}</p>
+  
+  {% for question in questions %}
+    <div class="card">
+      <div class="card-header">
+        Question {{ forloop.counter }}:     
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ question.description }}</h5>
+        <br>
+        {% for option in question.option_set.all %}
+          <p class="card-text"> <b>Option {{forloop.counter}}: </b>{{ option.description }}</p>
+          <p class="card-text"><em>Points:</em> {{ option.points }}</p>
+        {% endfor %}
+        <a href="{% url 'edit_question' test_id=test.id question_id=question.id %}" class="btn btn-dark">Edit question</a>
+        <a href="{% url 'delete_question' pk=question.id %}" class="btn btn-dark">Delete question</a>
+      </div>
+    </div>
+    <br>
+    {% endfor %}
+
+  
+    {% for result in results %}
+    <div class="card">
+      <div class="card-header">
+        Result {{ forloop.counter }}:     
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ result.description }}</h5>
+        <p class="card-text"> <em>Condition lower to: {{result.condition_max}}</em></p>
+        <p class="card-text"> <em>Condition greater to: {{result.condition_min}}</em></p>
+        <a href="{% url 'edit_result' pk=result.pk %}" class="btn btn-dark">Edit result</a>
+      </div>
+    </div>
+    <br>
+  {% endfor %}
+{% endblock %}

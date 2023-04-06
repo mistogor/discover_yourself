@@ -1,0 +1,42 @@
+/* Добавляем отступы от правой и левой границы экрана */
+body {
+    margin: 0 1rem;
+  }
+  
+  /* Делаем заголовок вопроса более заметным */
+  h3.display-6 {
+    font-weight: bold;
+    margin-top: 2rem;
+  }
+  
+  /* Добавляем отступы между полями формы */
+  form > * {
+    margin-bottom: 1rem;
+  }
+  
+  /* Убираем маргиналы у формы */
+  form {
+    margin: 0;
+  }
+  
+  /* Делаем таблицу опций более удобной для чтения */
+  #option-forms {
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+  }
+  
+  #option-forms th,
+  #option-forms td {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+  }
+  
+  /* Добавляем отступы и разделители между кнопками */
+  form button {
+    margin-right: 0.5rem;
+  }
+  
+  form button:not(:last-child) {
+    border-right: 1px solid #ccc;
+    padding-right: 0.5rem;
+  }

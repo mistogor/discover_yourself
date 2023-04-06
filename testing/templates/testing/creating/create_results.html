@@ -1,0 +1,11 @@
+{% extends 'testing/base.html' %}
+{% block content %}
+<h3 class="display-6" >Create Result for Test <b>' {{ test }} '</b> </h3>
+<h3 class="display-6">Result № {{ result_number }}</h3>
+<form method="POST">
+  {% csrf_token %}
+  {{test_result_form.as_p}}
+  <button type="submit" class="btn btn-dark" >Save result </button>
+  <a href="{% url 'test_info' test_id=test.id %}" class="btn btn-dark">Exit to test info</a>
+  </form>
+{% endblock %}

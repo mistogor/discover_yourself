@@ -1,0 +1,47 @@
+{% extends "testing/base.html" %}
+
+{% block content %}
+  <h3 class="display-6" >Create Question for <b>' {{ test }} '</b> </h3>
+  <h3 class="display-6">Question № {{ question_number }}</h3>
+  <form method="post">
+    {% csrf_token %}
+    {{ question_form.as_p }}
+
+    <table id="option-forms">
+      {{ option_formset.management_form }}
+      {% for option_form in option_formset %}
+        <tr class="option-form">
+          <td>{{ option_form.description }}</td>
+          <td>{{ option_form.points }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+
+    <div class="col-md-12 text-center">
+        <div class="btn-group" >
+            <button type="submit" class="btn btn-outline-dark" name="action" value="back">Back</button>
+            <button type="submit" class="btn btn-dark" name="action" value="add">Add Next Question</button>
+            <button type="submit" class="btn btn-outline-dark" name="action" value="results">Add Results</button>
+        </div>
+    </div>
+
+    <input type="hidden" name="test_id" value="{{ test.id }}">
+    <input type="hidden" name="question_number" value="{{ question_number }}">
+
+    <style>
+       /* The following CSS styles are added to make the option forms appear side by side and of equal size */
+  #option-forms td {
+    padding: 0px 10px;
+  }
+  #option-forms tr {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px; /* Add margin bottom to create space between rows */
+  }
+  #option-forms tr td {
+    flex: 1;
+    min-width: 0;
+  }
+    </style>
+  </form>
+{% endblock %}

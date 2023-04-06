@@ -1,0 +1,65 @@
+{% extends 'testing/base.html' %}
+{% block content %}
+{% load static %}
+<img class="home-image" src="{% static 'img/Group 4.jpg' %}" alt="home">
+<h1 class="display-1">Go and discover yourself right now for free</h1>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Psychological testing</h5>
+        <p class="card-text">Psychological testing is a way to measure a person's mental and emotional abilities, personality traits, and behaviors. By taking standardized tests and answering questions, you can learn more about your strengths, weaknesses, and areas to improve. This information can be used to help you better understand yourself and make positive changes in your life.</p>
+      </div>
+      <div class="card-footer">
+        <a href="{%url 'tests-list'%}" class="btn btn-dark">Go to tests list</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Soul number</h5>
+        <p class="card-text">The number of the soul determines a person's personal path. It affects character, preferences, talents and inclinations, as well as everything that is considered a manifestation of personality and individuality. The soul number refers to a person's inner world, his or her essence, potential, capabilities, and true aspirations.
+          </p>
+      </div>
+      <div class="card-footer">
+        <a href="{%url 'soul_number'%}" class="btn btn-dark">Find out your soul number</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Destiny number</h5>
+        <p class="card-text">The value of the number of destiny characterizes the basic essence of a person. It tells about your destiny, shows what abilities you came into this world with and what karmic tasks you have.</p>
+      </div>
+      <div class="card-footer">
+        <a href="{%url 'destiny_number'%}" class="btn btn-dark">Go to destiny number</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Pythagoras matrix</h5>
+        <p class="card-text">Pythagoras' psychomatrix is a unique technique that allows you to make a detailed and quite accurate psychological characteristic of a person, to determine his character and other features. With its help you can learn everything about yourself, and if you decompose the date of birth of a loved one or an acquaintance - you can understand the reasons for his actions.</p>
+      </div>
+      <div class="card-footer">
+        <a href="{%url 'pithagor_matrix' %}" class="btn btn-dark">Go to Pythagoras matrix</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h1 class="display-1">About us</h1>
+
+
+<p class="lead">
+  Our website offers personalized numerology readings and psychological assessments to help you gain a deeper understanding of yourself and your life path. Our numerology readings use your birthdate and name to provide insight into your personality, strengths, weaknesses, and overall life purpose. In addition, our psychological assessments can help you identify and work through any underlying issues that may be holding you back from achieving your full potential.</p>
+  <p class="lead">
+    Our team of experienced numerologists and psychologists has developed a range of tests and readings that are tailored to your specific needs. Whether you're looking for a quick overview or a more in-depth analysis, we have a range of options to suit your needs and budget. All of our assessments are based on scientifically validated methods and are designed to provide you with actionable insights that you can use to improve your life.
+  </p>
+  <p class="lead">
+    At our website, we believe that everyone has the potential to live a fulfilling and purposeful life. Whether you're struggling with relationships, career, or personal growth, our numerology readings and psychological assessments can help you gain the clarity and insight you need to move forward with confidence. So why not take the first step on your journey of self-discovery and book a reading or assessment today?
+  </p>
+{% endblock %}

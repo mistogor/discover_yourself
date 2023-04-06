@@ -1,0 +1,28 @@
+{% extends "testing/base.html" %}
+
+{% block content %}
+  <h3> Here you can check all your results</h3>
+  <form method="GET">
+  <div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+      <th>Title</th>
+      <th>Category</th>
+      <th> Author </th>
+      <th> Score </th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for obj in results %}
+    <td>{{ obj.test.title }}</td>
+    <td>{{ obj.test.category }}</td>
+    <td>{{ obj.test.author }}</td>
+    <td>{{ obj.score}}</td>
+    <td> <a href= {% url 'your_results_details' result_id=obj.id %} class="btn btn-dark btn-sm active" role="button"> Details </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+  </div>
+{% endblock %}

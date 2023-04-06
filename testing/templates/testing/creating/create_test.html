@@ -1,0 +1,10 @@
+{% extends 'testing/base.html' %}
+{% block content %}
+<h1>Create new test</h1>
+<p>Just input everything i need</p>
+<form method="POST">
+  {% csrf_token %}
+  {{test_form.as_p}}
+  <button type="submit" class="btn btn-dark" >Save and go to the next step </button>
+  </form>
+{% endblock %}
