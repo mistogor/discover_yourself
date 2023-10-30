@@ -3,9 +3,9 @@
 __pycache__ 
 myvenv 
 .env
-/static 
 .DS_Store
 .idea/
 .venv/
 .vscode/
 .DS_Store
+settings.py
